@@ -1,0 +1,166 @@
+.header {
+    &-top {
+        max-width: 1110px;
+        margin: 0 auto;
+        padding: 7px 0 15px 0;
+        display: flex;
+        justify-content: space-between;
+        &__nav {
+            padding: 0;
+            display: flex;
+            list-style: none;
+            gap: 0 20px;
+            & a {
+                text-decoration: none;
+                font-weight: 300;
+                font-size: 12px;
+                line-height: 14px;
+                letter-spacing: 0.009em;
+                transition: color 0.2s ease-in-out;
+
+                color: #000000;
+                &:hover {
+                    color: #c93e33;
+                }
+            }
+        }
+    }
+    &-contact ul {
+        padding: 0;
+        display: flex;
+        list-style: none;
+        gap: 0 20px;
+        & li {
+            &:first-child a {
+                color: #000;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 19px;
+                letter-spacing: 1px;
+            }
+            &:last-child a {
+                color: #333333;
+            }
+            & a {
+                font-weight: 300;
+                font-size: 12px;
+                line-height: 14px;
+                margin-left: 10px;
+                text-decoration: none;
+                color: #ad352d;
+                &:hover {
+                    color: #ad352d;
+                }
+            }
+        }
+    }
+    &-down {
+        padding: 20px 0 20px 0;
+        max-width: 1110px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        &__logo {
+            cursor: pointer;
+            gap: 0 15px;
+            display: flex;
+            align-items: center;
+            & span {
+                max-width: 120px;
+            }
+        }
+        &-input {
+            position: relative;
+            & input {
+                width: 546px;
+                background: #ffffff;
+                border: 1px solid #e6e6e6;
+                border-radius: 4px;
+                padding: 12px 0 12px 48px;
+            }
+            & img {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                &:first-child {
+                    left: 17px;
+                }
+                &:last-child {
+                    right: 16px;
+                }
+            }
+        }
+        &-favorites {
+            cursor: pointer;
+            gap: 7px 0;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            transition: all 0.2 ease-in-out;
+            & span {
+                font-family: "Fira Sans";
+                font-style: normal;
+                font-weight: 300;
+                font-size: 12px;
+                line-height: 14px;
+                letter-spacing: 0.009em;
+            }
+            & img {
+                width: 20px;
+                height: 20px;
+            }
+            & span:hover {
+                color: #c93e33;
+            }
+        }
+        &-cart {
+            cursor: pointer;
+            position: relative;
+            gap: 5px 0;
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+            transition: all 0.2 ease-in-out;
+            & img {
+                width: 20px;
+                height: 20px;
+                &:last-child {
+                    position: absolute;
+                    right: 4px;
+                    top: -5px;
+                }
+            }
+            & span {
+                font-family: "Fira Sans";
+                font-style: normal;
+                font-weight: 300;
+                font-size: 12px;
+                line-height: 14px;
+                letter-spacing: 0.009em;
+            }
+            & span:last-child:hover {
+                color: #c93e33;
+            }
+        }
+    }
+    &:nth-child(2n) {
+        background-color: #ffffff;
+    }
+}
+.count {
+    font-weight: 600;
+    font-size: 8px;
+    line-height: 10px;
+
+    letter-spacing: 0.009em;
+
+    color: #fff;
+    z-index: 1000;
+    position: absolute;
+    right: 10px;
+    top: -2px;
+    &:hover {
+        color: #fff;
+    }
+}
