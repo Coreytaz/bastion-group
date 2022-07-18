@@ -1,0 +1,16 @@
+footer {
+    margin-top: 110px;
+    height: 291px;
+    display: block;
+    width: 100%;
+    position: relative;
+    background: #222628;
+}
+.footer-svg {
+    left: 50%;
+    top: -67px;
+    transform: translateX(-50%);
+    position: absolute;
+    display: block;
+    margin: 0 auto;
+}

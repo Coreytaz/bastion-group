@@ -1,0 +1,222 @@
+.cart {
+    &-title {
+        margin-bottom: 30px;
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 36px;
+
+        letter-spacing: 1px;
+    }
+    &-inner {
+        display: flex;
+        flex-direction: row-reverse;
+        background: #ffffff;
+        border: 1px solid #e6e6e6;
+    }
+    &-order {
+        width: 25%;
+        border-left: 1px solid #e6e6e6;
+        & form {
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-bottom: 30px;
+        }
+    }
+    &-content {
+        width: 75%;
+        &-title {
+            padding: 21px 20px;
+            display: flex;
+            align-items: center;
+            gap: 0 10px;
+            border-bottom: 1px solid #e6e6e6;
+            & img {
+                display: block;
+            }
+            & span {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 14px;
+                letter-spacing: 0.009em;
+
+                color: #b3b3b3;
+            }
+        }
+        &-items {
+            display: flex;
+            flex-direction: column;
+        }
+        &-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 40px 30px 20px;
+            border-bottom: 1px solid #e6e6e6;
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+    &-order-title {
+        border-bottom: 1px solid #e6e6e6;
+        h1 {
+            margin: 0;
+            padding: 18px 20px;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 22px;
+
+            letter-spacing: 1px;
+        }
+    }
+}
+
+.order {
+    &-title {
+        margin-bottom: 10px;
+        padding-left: 20px;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 18px;
+
+        letter-spacing: 0.009em;
+
+        color: #b3b3b3;
+    }
+    &-totalPrice {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        & h1 {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 22px;
+
+            letter-spacing: 1px;
+        }
+        & span {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 22px;
+
+            letter-spacing: 1px;
+
+            color: #c93e33;
+        }
+    }
+    &-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 15px 0;
+        & button {
+            justify-content: space-evenly;
+            &:last-child {
+                background: #ffffff;
+                border: 1px solid #c93e33;
+                border-radius: 4px;
+                color: #c93e33;
+            }
+        }
+    }
+}
+
+.content {
+    &-inner {
+        display: flex;
+        gap: 0 25px;
+    }
+    &-item-desc {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px 0;
+    }
+    &-standart {
+        padding: 5px 10px;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 12px;
+        letter-spacing: 0.009em;
+
+        color: #c93e33;
+        background: rgba(201, 61, 51, 0.1);
+        border-radius: 2px;
+    }
+    &-title {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 0.009em;
+
+        color: #000000;
+    }
+    &-price {
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 18px;
+
+        letter-spacing: 0.009em;
+
+        color: #b3b3b3;
+    }
+    &-count {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        background: #ffffff;
+        border: 1px solid #e6e6e6;
+        border-radius: 2px;
+        width: 100px;
+        & span {
+            padding: 10px;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 22px;
+            letter-spacing: 0.009em;
+
+            color: #000000;
+            &:nth-child(1) {
+                cursor: pointer;
+                border-right: 1px solid #e6e6e6;
+                &:hover {
+                    color: #c93e33;
+                }
+                &:active {
+                    transform: translateY(-1px);
+                }
+            }
+            &:nth-child(3) {
+                cursor: pointer;
+                border-left: 1px solid #e6e6e6;
+                &:hover {
+                    color: #c93e33;
+                }
+                &:active {
+                    transform: translateY(-1px);
+                }
+            }
+        }
+    }
+    &-total-count {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 18px;
+
+        color: #000000;
+    }
+    &-trash {
+        cursor: pointer;
+        & svg {
+            transition: all 0.2s ease-out;
+            fill: transparent;
+            &:hover {
+                fill: #c93e33;
+            }
+        }
+        &:active {
+            transform: translateY(-1px);
+        }
+    }
+}

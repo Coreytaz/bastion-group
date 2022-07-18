@@ -12,6 +12,7 @@ import Star from "../../assets/star.svg";
 import Shopping from "../../assets/shopping.svg";
 import Count from "../../assets/count.svg";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
   return (
@@ -49,10 +50,10 @@ const Header: React.FC = () => {
       </header>
       <header className="header">
         <div className="header-down">
-          <div className="header-down__logo">
+          <Link to="/" className="header-down__logo">
             <img src={Logo} alt="logo" />
             <span>Производитель металлических изделий №1</span>
-          </div>
+          </Link>
           <Button appearance="primary" icon="catalog">
             Каталог
           </Button>
@@ -65,7 +66,7 @@ const Header: React.FC = () => {
             <img src={Star} alt="star" />
             <span>Избранное</span>
           </div>
-          <div className="header-down-cart">
+          <Link to="cart" className="header-down-cart">
             <span>
               <img src={Shopping} alt="cart" />
               {
@@ -76,7 +77,7 @@ const Header: React.FC = () => {
               }
             </span>
             <span>Корзина</span>
-          </div>
+          </Link>
         </div>
       </header>
     </>

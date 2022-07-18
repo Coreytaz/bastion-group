@@ -8,6 +8,7 @@ import MiniArrow from "../../assets/arrow.svg";
 import Setting from "../../assets/ItemsBlock/setting.svg";
 import Help from "../../assets/ItemsBlock/help.svg";
 import Button from "../Button/Button";
+import Item from "../../assets/ItemsBlock/items/item.jpg";
 
 const ItemsBlock: React.FC = () => {
   return (
@@ -203,7 +204,163 @@ const ItemsBlock: React.FC = () => {
               </Button>
             </div>
           </div>
-          <div className="menuItem-card"></div>
+          <div className="menuItem-card">
+            <div className="standard-menu">
+              <ul>
+                <li className="active">ГОСТ 14911-82</li>
+                <li>ОСТ 36-146-88</li>
+                <li>НТС 65-06</li>
+                <li>ОСТ 36-146-88</li>
+                <li>НТС 65-06</li>
+              </ul>
+            </div>
+            <div className="menuItem-items">
+              <div className="menuItem-inner">
+                <div className="menuItem-item">
+                  <span>
+                    <div className="hit">Хит</div>
+                    <div className="stock">Акция</div>
+                  </span>
+                  <img src={Item} alt="item" />
+                  <div className="standard">ГОСТ 14911-82</div>
+                  <h1 className="item-title">Опора тавровая хомутовая ТХ</h1>
+                  <p className="item-price">849.9 руб.</p>
+                  <div className="menuItem-btns">
+                    <Button appearance="primary" icon="cart">В корзину</Button>
+                    <Button appearance="ghost">Подробнее</Button>
+                  </div>
+                </div>
+              </div>
+              <div className="menuItem-inner">
+                <div className="menuItem-item">
+                  <span>
+                    <div className="hit">Хит</div>
+                    <div className="stock">Акция</div>
+                  </span>
+                  <img src={Item} alt="item" />
+                  <div className="standard">ГОСТ 14911-82</div>
+                  <h1 className="item-title">Опора тавровая хомутовая ТХ</h1>
+                  <p className="item-price">849.9 руб.</p>
+                  <div className="menuItem-btns">
+                    <Button appearance="primary" icon="cart">В корзину</Button>
+                    <Button appearance="ghost">Подробнее</Button>
+                  </div>
+                </div>
+              </div>
+              <div className="menuItem-inner">
+                <div className="menuItem-item">
+                  <span>
+                    <div className="hit">Хит</div>
+                    <div className="stock">Акция</div>
+                  </span>
+                  <img src={Item} alt="item" />
+                  <div className="standard">ГОСТ 14911-82</div>
+                  <h1 className="item-title">Опора тавровая хомутовая ТХ</h1>
+                  <p className="item-price">849.9 руб.</p>
+                  <div className="menuItem-btns">
+                    <Button appearance="primary" icon="cart">В корзину</Button>
+                    <Button appearance="ghost">Подробнее</Button>
+                  </div>
+                </div>
+              </div>
+              <div className="menuItem-inner">
+                <div className="menuItem-item">
+                  <span>
+                    <div className="hit">Хит</div>
+                    <div className="stock">Акция</div>
+                  </span>
+                  <img src={Item} alt="item" />
+                  <div className="standard">ГОСТ 14911-82</div>
+                  <h1 className="item-title">Опора тавровая хомутовая ТХ</h1>
+                  <p className="item-price">849.9 руб.</p>
+                  <div className="menuItem-btns">
+                    <Button appearance="primary" icon="cart">В корзину</Button>
+                    <Button appearance="ghost">Подробнее</Button>
+                  </div>
+                </div>
+              </div>
+              <div className="menuItem-inner">
+                <div className="menuItem-item">
+                  <span>
+                    <div className="hit">Хит</div>
+                    <div className="stock">Акция</div>
+                  </span>
+                  <img src={Item} alt="item" />
+                  <div className="standard">ГОСТ 14911-82</div>
+                  <h1 className="item-title">Опора тавровая хомутовая ТХ</h1>
+                  <p className="item-price">849.9 руб.</p>
+                  <div className="menuItem-btns">
+                    <Button appearance="primary" icon="cart">В корзину</Button>
+                    <Button appearance="ghost">Подробнее</Button>
+                  </div>
+                </div>
+              </div>
+              <div className="menuItem-inner">
+                <div className="menuItem-item">
+                  <span>
+                    <div className="hit">Хит</div>
+                    <div className="stock">Акция</div>
+                  </span>
+                  <img src={Item} alt="item" />
+                  <div className="standard">ГОСТ 14911-82</div>
+                  <h1 className="item-title">Опора тавровая хомутовая ТХ</h1>
+                  <p className="item-price">849.9 руб.</p>
+                  <div className="menuItem-btns">
+                    <Button appearance="primary" icon="cart">В корзину</Button>
+                    <Button appearance="ghost">Подробнее</Button>
+                  </div>
+                </div>
+              </div>
+              <div className="menuItem-inner">
+                <div className="menuItem-item">
+                  <span>
+                    <div className="hit">Хит</div>
+                    <div className="stock">Акция</div>
+                  </span>
+                  <img src={Item} alt="item" />
+                  <div className="standard">ГОСТ 14911-82</div>
+                  <h1 className="item-title">Опора тавровая хомутовая ТХ</h1>
+                  <p className="item-price">849.9 руб.</p>
+                  <div className="menuItem-btns">
+                    <Button appearance="primary" icon="cart">В корзину</Button>
+                    <Button appearance="ghost">Подробнее</Button>
+                  </div>
+                </div>
+              </div>
+              <div className="menuItem-inner">
+                <div className="menuItem-item">
+                  <span>
+                    <div className="hit">Хит</div>
+                    <div className="stock">Акция</div>
+                  </span>
+                  <img src={Item} alt="item" />
+                  <div className="standard">ГОСТ 14911-82</div>
+                  <h1 className="item-title">Опора тавровая хомутовая ТХ</h1>
+                  <p className="item-price">849.9 руб.</p>
+                  <div className="menuItem-btns">
+                    <Button appearance="primary" icon="cart">В корзину</Button>
+                    <Button appearance="ghost">Подробнее</Button>
+                  </div>
+                </div>
+              </div>
+              <div className="menuItem-inner">
+                <div className="menuItem-item">
+                  <span>
+                    <div className="hit">Хит</div>
+                    <div className="stock">Акция</div>
+                  </span>
+                  <img src={Item} alt="item" />
+                  <div className="standard">ГОСТ 14911-82</div>
+                  <h1 className="item-title">Опора тавровая хомутовая ТХ</h1>
+                  <p className="item-price">849.9 руб.</p>
+                  <div className="menuItem-btns">
+                    <Button appearance="primary" icon="cart">В корзину</Button>
+                    <Button appearance="ghost">Подробнее</Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </main>
       </div>
     </>
