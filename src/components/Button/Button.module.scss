@@ -28,6 +28,15 @@
             background: #e2e1e1;
         }
     }
+    &:disabled {
+        background: rgb(117, 117, 117);
+        &:hover {
+            background: rgb(117, 117, 117);
+        }
+        &:active {
+            transform: none;
+        }
+    }
 }
 
 .span {

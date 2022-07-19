@@ -22,10 +22,10 @@ const Header: React.FC = () => {
           <nav>
             <ul className="header-top__nav">
               <li>
-                <a href="#">Типы продуктов</a>
+                <Link to="typeProduct">Типы продуктов</Link>
               </li>
               <li>
-                <a href="#">Продукты</a>
+                <Link to="product">Продукты</Link>
               </li>
             </ul>
           </nav>
