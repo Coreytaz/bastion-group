@@ -13,8 +13,15 @@ import Shopping from "../../assets/shopping.svg";
 import Count from "../../assets/count.svg";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 const Header: React.FC = () => {
+  const items = useSelector((state: RootState) => state.cart.items);
+  const totalCount = items.reduce(
+    (total: number, item: any) => total + item.count,
+    0
+  );
   return (
     <>
       <header className="header">
@@ -69,12 +76,12 @@ const Header: React.FC = () => {
           <Link to="cart" className="header-down-cart">
             <span>
               <img src={Shopping} alt="cart" />
-              {
+              {totalCount > 0 && (
                 <>
-                  <span className="count">2</span>
-                  <img src={Count} alt="count" />
+                  <span className="count">{totalCount}</span>
+                  <img className="red" src={Count} alt="count" />
                 </>
-              }
+              )}
             </span>
             <span>Корзина</span>
           </Link>

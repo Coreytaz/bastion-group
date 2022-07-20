@@ -9,16 +9,11 @@ import Setting from "../../assets/ItemsBlock/setting.svg";
 import Help from "../../assets/ItemsBlock/help.svg";
 import Button from "../Button/Button";
 import StandartList from "../StandartList/StandartList";
-import { useSelector } from "react-redux";
-import { RootState, useAppDispatch } from "../../redux/store";
 import TypeBlock from "../TypeBlock";
-import { setClearFilter } from "../../redux/slice/filterSlice";
-import { Input } from "../Input/Input";
+import PriceFilter from "../PriceFilter";
+import ItemBlock from "../ItemBlock";
 
 const ItemsBlock: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const product = useSelector((state: RootState) => state.product);
-
   return (
     <>
       <div className="container">
@@ -92,14 +87,7 @@ const ItemsBlock: React.FC = () => {
                 id="faq_3"
               />
               <div className="filters-text priceFilter">
-                <span>
-                  <label htmlFor="from">От</label>
-                  <input type="number" name="from" />
-                </span>
-                <span>
-                  <label htmlFor="to">До</label>
-                  <input type="number" name="to" />
-                </span>
+                <PriceFilter />
               </div>
             </div>
             <div className="filters">
@@ -184,11 +172,7 @@ const ItemsBlock: React.FC = () => {
               </label>
             </div>
             <div className="filters">
-              <Button
-                className="buttonGhost"
-                appearance="ghost"
-                onClick={() => dispatch(setClearFilter())}
-              >
+              <Button className="buttonGhost" appearance="ghost">
                 Сбросить фильтры
               </Button>
             </div>
@@ -198,32 +182,7 @@ const ItemsBlock: React.FC = () => {
               <StandartList />
             </div>
             <div className="menuItem-items">
-              {product.map((item) => (
-                <div className="menuItem-inner" key={item.id}>
-                  <div className="menuItem-item">
-                    <span>
-                      {(item.name.toLocaleLowerCase().includes("о") ||
-                        item.name.toLocaleLowerCase().includes("o")) && (
-                        <div className="hit">Хит</div>
-                      )}
-                      {(item.name.toLocaleLowerCase().includes("а") ||
-                        item.name.toLocaleLowerCase().includes("a")) && (
-                        <div className="stock">Акция</div>
-                      )}
-                    </span>
-                    <img src={item.image} alt="item" />
-                    <div className="standard">{item.standart}</div>
-                    <h1 className="item-title">{item.name}</h1>
-                    <p className="item-price">{item.price} руб.</p>
-                    <div className="menuItem-btns">
-                      <Button appearance="primary" icon="cart">
-                        В корзину
-                      </Button>
-                      <Button appearance="ghost">Подробнее</Button>
-                    </div>
-                  </div>
-                </div>
-              ))}
+              <ItemBlock />
             </div>
           </div>
         </main>

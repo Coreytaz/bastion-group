@@ -8,11 +8,15 @@ export type typeProductState = {
 const initialState: Array<typeProductState> = [
   {
     id: "1",
-    name: "Tube",
+    name: "Опора",
   },
   {
     id: "2",
-    name: "Wall",
+    name: "Хомутовая",
+  },
+  {
+    id: "3",
+    name: "Приварная",
   },
 ];
 

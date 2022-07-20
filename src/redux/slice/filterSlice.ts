@@ -20,8 +20,10 @@ export const filterSlice = createSlice({
   reducers: {
     setStandard: (state, action) => {
       if (state.Standart.includes(action.payload)) {
-        let del = state.Standart.findIndex((el) => el === action.payload);
-        state.Standart.splice(del, 1);
+        state.Standart.splice(
+          state.Standart.findIndex((el) => el === action.payload),
+          1
+        );
       } else {
         state.Standart.push(action.payload);
       }
@@ -39,21 +41,10 @@ export const filterSlice = createSlice({
     setMinPrice: (state, action) => {
       state.minPrice = action.payload;
     },
-    setClearFilter: (state) => {
-      state.Type = "";
-      state.maxPrice = 0;
-      state.minPrice = 0;
-      state.Standart = [];
-    },
   },
 });
 
-export const {
-  setStandard,
-  setType,
-  setClearFilter,
-  setMaxPrice,
-  setMinPrice,
-} = filterSlice.actions;
+export const { setStandard, setType, setMaxPrice, setMinPrice } =
+  filterSlice.actions;
 
 export default filterSlice.reducer;
