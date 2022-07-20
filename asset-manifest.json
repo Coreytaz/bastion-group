@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/bastion-group/static/css/main.1e3049fa.css",
+    "main.js": "/bastion-group/static/js/main.f1bb8575.js",
+    "static/media/footer.svg": "/bastion-group/static/media/footer.b29a1039818bb124af96e69538c21fa7.svg",
+    "static/media/item.jpg": "/bastion-group/static/media/item.db03cc821298620af316.jpg",
+    "static/media/logo.svg": "/bastion-group/static/media/logo.ebab15e8c999974681d4da55d6a93c4e.svg",
+    "static/media/Commercial.svg": "/bastion-group/static/media/Commercial.3fd4a966ec26405c57761f78f759e564.svg",
+    "static/media/sortt.svg": "/bastion-group/static/media/sortt.51d3d8dbc0ee39bdb9ce07ad69642272.svg",
+    "static/media/cart.svg": "/bastion-group/static/media/cart.abe5c1fd9eb2c098d136df7bbb86fb17.svg",
+    "static/media/setting.svg": "/bastion-group/static/media/setting.004499767e2164ee2b63db4978ea2e40.svg",
+    "static/media/help.svg": "/bastion-group/static/media/help.bdd90a5da4843e64b0b5376d37bf2905.svg",
+    "static/media/shopping.svg": "/bastion-group/static/media/shopping.364748d2ad9aefb564899bb02162ab04.svg",
+    "static/media/application.svg": "/bastion-group/static/media/application.0438f7d039d092f39ae791afae9c00d1.svg",
+    "static/media/map.svg": "/bastion-group/static/media/map.944d72f4fcb10d774b47fe0462d2252b.svg",
+    "static/media/phone.svg": "/bastion-group/static/media/phone.70c2e7830e77466a77edde6624a5dd5d.svg",
+    "static/media/catalog.svg": "/bastion-group/static/media/catalog.a221402cb7ce636f2e727f89e360aac4.svg",
+    "static/media/star.svg": "/bastion-group/static/media/star.70492953a6108505b32fe82566e21cae.svg",
+    "static/media/sort.svg": "/bastion-group/static/media/sort.b4d170825642e843de6dc28c73a0d00b.svg",
+    "static/media/mail.svg": "/bastion-group/static/media/mail.16194248300104de6b05554152d9ce46.svg",
+    "static/media/alert.svg": "/bastion-group/static/media/alert.6484a23dfe2fe8ceb1b182f546ea0d22.svg",
+    "static/media/org.svg": "/bastion-group/static/media/org.7959d1da5803620b83357f3b1cfeb391.svg",
+    "index.html": "/bastion-group/index.html",
+    "static/media/Search.svg": "/bastion-group/static/media/Search.38f2adff3c5889de6b3743ac36dc4683.svg",
+    "static/media/enter.svg": "/bastion-group/static/media/enter.168763d3dc375baf6cf66a495e5e86c9.svg",
+    "static/media/user.svg": "/bastion-group/static/media/user.dcd7cc720f55a4f9f5b63d434ea630ce.svg",
+    "static/media/Arrow.svg": "/bastion-group/static/media/Arrow.ef366913ba88203faf49a53f43a2a68b.svg",
+    "static/media/down.svg": "/bastion-group/static/media/down.2338b2e661829d31d901e2a453fb99b1.svg",
+    "static/media/arrow.svg": "/bastion-group/static/media/arrow.c162592d1eed92f65a660d832d17d50f.svg",
+    "static/media/count.svg": "/bastion-group/static/media/count.58921be4a4537c429c9f0177938fb6e0.svg",
+    "main.1e3049fa.css.map": "/bastion-group/static/css/main.1e3049fa.css.map",
+    "main.f1bb8575.js.map": "/bastion-group/static/js/main.f1bb8575.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1e3049fa.css",
+    "static/js/main.f1bb8575.js"
+  ]
+}
