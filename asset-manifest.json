@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/bastion-group/static/css/main.1e3049fa.css",
-    "main.js": "/bastion-group/static/js/main.2037133d.js",
+    "main.js": "/bastion-group/static/js/main.29d0a083.js",
     "static/media/footer.svg": "/bastion-group/static/media/footer.b29a1039818bb124af96e69538c21fa7.svg",
     "static/media/item.jpg": "/bastion-group/static/media/item.db03cc821298620af316.jpg",
     "static/media/logo.svg": "/bastion-group/static/media/logo.ebab15e8c999974681d4da55d6a93c4e.svg",
@@ -29,10 +29,10 @@
     "static/media/arrow.svg": "/bastion-group/static/media/arrow.c162592d1eed92f65a660d832d17d50f.svg",
     "static/media/count.svg": "/bastion-group/static/media/count.58921be4a4537c429c9f0177938fb6e0.svg",
     "main.1e3049fa.css.map": "/bastion-group/static/css/main.1e3049fa.css.map",
-    "main.2037133d.js.map": "/bastion-group/static/js/main.2037133d.js.map"
+    "main.29d0a083.js.map": "/bastion-group/static/js/main.29d0a083.js.map"
   },
   "entrypoints": [
     "static/css/main.1e3049fa.css",
-    "static/js/main.2037133d.js"
+    "static/js/main.29d0a083.js"
   ]
 }
