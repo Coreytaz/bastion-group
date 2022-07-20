@@ -7,7 +7,7 @@ type CartItemProps = {
   items: CartItem[];
 };
 
-const CartItemBlock: React.FC<CartItemProps> = ({ items }) => {
+const CartItemBlock: React.FC<CartItemProps> = React.memo(({ items }) => {
   const dispatch = useAppDispatch();
   return (
     <>
@@ -63,6 +63,6 @@ const CartItemBlock: React.FC<CartItemProps> = ({ items }) => {
       )}
     </>
   );
-};
+});
 
 export default CartItemBlock;

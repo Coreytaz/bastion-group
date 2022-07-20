@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import cartSlice from "./slice/cartSlice";
 import filterSlice from "./slice/filterSlice";
+import orderSlice from "./slice/orderSlice";
 import productSlice from "./slice/productSlice";
 import typeProductSlice from "./slice/typeProductSlice";
 
@@ -11,6 +12,7 @@ const store = configureStore({
     product: productSlice,
     filter: filterSlice,
     cart: cartSlice,
+    order: orderSlice,
   },
 });
 

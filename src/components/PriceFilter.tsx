@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { setMaxPrice, setMinPrice } from "../redux/slice/filterSlice";
 import { RootState, useAppDispatch } from "../redux/store";
 
-const PriceFilter: React.FC = () => {
+const PriceFilter: React.FC = React.memo(() => {
   const dispatch = useAppDispatch();
   const prices = useSelector((state: RootState) =>
     state.product.map((item) => item.price)
@@ -94,6 +94,6 @@ const PriceFilter: React.FC = () => {
       </div>
     </>
   );
-};
+});
 
 export default PriceFilter;

@@ -53,10 +53,10 @@ const TypeProduct: React.FC = () => {
             name="id"
             onChange={(e) => id.onChange(e)}
             onBlur={(e) => id.onBlur()}
+            value={id.value}
             onFocus={() => {
               setErrorId(false);
             }}
-            value={id.value}
           />
           {name.isDirty && name.empty && (
             <div style={{ color: "red" }}>Поле не может быть пустым</div>

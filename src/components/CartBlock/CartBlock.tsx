@@ -11,13 +11,12 @@ import CartOrder from "../CartOrder";
 
 const CartBlock: React.FC = () => {
   const { items, totalPrice } = useSelector((state: RootState) => state.cart);
-  console.log(items, totalPrice);
 
   return (
     <div className="container">
       <div className="cart-title">Корзина</div>
       <div className="cart-inner">
-        <CartOrder items={items} totalPrice={totalPrice}/>
+        <CartOrder items={items} totalPrice={totalPrice} />
         <div className="cart-content">
           <div className="cart-content-title">
             <img src={Alert} alt="" />

@@ -7,7 +7,7 @@ type CountCartProps = {
   id: string;
 };
 
-const CountCart: React.FC<CountCartProps> = ({ id }) => {
+const CountCart: React.FC<CountCartProps> = React.memo(({ id }) => {
   const dispatch = useAppDispatch();
   const cartItem = useSelector((state: RootState) =>
     state.cart.items.find((obj) => obj.id === id)
@@ -25,6 +25,6 @@ const CountCart: React.FC<CountCartProps> = ({ id }) => {
       )}
     </>
   );
-};
+});
 
 export default CountCart;

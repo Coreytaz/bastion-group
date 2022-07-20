@@ -9,19 +9,11 @@ import Logo from "../../assets/logo.svg";
 import Search from "../../assets/Search.svg";
 import Enter from "../../assets/enter.svg";
 import Star from "../../assets/star.svg";
-import Shopping from "../../assets/shopping.svg";
-import Count from "../../assets/count.svg";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
+import CartLink from "../CartLink";
 
-const Header: React.FC = () => {
-  const items = useSelector((state: RootState) => state.cart.items);
-  const totalCount = items.reduce(
-    (total: number, item: any) => total + item.count,
-    0
-  );
+const Header: React.FC = React.memo(() => {
   return (
     <>
       <header className="header">
@@ -74,21 +66,13 @@ const Header: React.FC = () => {
             <span>Избранное</span>
           </div>
           <Link to="cart" className="header-down-cart">
-            <span>
-              <img src={Shopping} alt="cart" />
-              {totalCount > 0 && (
-                <>
-                  <span className="count">{totalCount}</span>
-                  <img className="red" src={Count} alt="count" />
-                </>
-              )}
-            </span>
+            <CartLink />
             <span>Корзина</span>
           </Link>
         </div>
       </header>
     </>
   );
-};
+});
 
 export default Header;
