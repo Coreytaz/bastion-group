@@ -1,0 +1,1 @@
+import{_ as e,b as t}from"./index-DwwLBdEC.js";var n=e();function r(){return(0,n.jsxs)(`main`,{className:`container empty-state`,children:[(0,n.jsx)(`h1`,{children:`Страница не найдена`}),(0,n.jsx)(t,{to:`/`,children:`Вернуться в каталог`})]})}export{r as default};
