@@ -1,27 +1,22 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { setType } from "../redux/slice/filterSlice";
-import { RootState, useAppDispatch } from "../redux/store";
+import { type RootState, useAppDispatch } from "../redux/store";
 
-const TypeBlock: React.FC = () => {
+export default function TypeBlock() {
   const dispatch = useAppDispatch();
-  const { product, filter } = useSelector((state: RootState) => state);
-  const types = Array.from(new Set(product.map((item) => item.type)));
-  const typeActive = filter.Type;
+  const products = useSelector((state: RootState) => state.product);
+  const active = useSelector((state: RootState) => state.filter.Type);
+  const types = [...new Set(products.map((product) => product.type))];
 
   return (
     <ul>
-      {types.map((item, i) => (
-        <li
-          key={i}
-          onClick={() => dispatch(setType(item))}
-          className={typeActive.includes(item) ? "active" : ""}
-        >
-          {item}
+      {types.map((type) => (
+        <li key={type}>
+          <button type="button" aria-pressed={active === type}
+            className={active === type ? "active" : ""}
+            onClick={() => dispatch(setType(type))}>{type}</button>
         </li>
       ))}
     </ul>
   );
-};
-
-export default TypeBlock;
+}

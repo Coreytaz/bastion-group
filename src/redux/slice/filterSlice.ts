@@ -1,50 +1,42 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
-export type filterstState = {
+export interface FilterState {
   Type: string;
   minPrice: number;
-  maxPrice: number;
+  maxPrice: number | null;
   Standart: string[];
-};
+}
 
-const initialState: filterstState = {
+const initialState: FilterState = {
   Type: "",
   minPrice: 0,
-  maxPrice: 0,
+  maxPrice: null, // no upper limit until the user sets one
   Standart: [],
 };
 
-export const filterSlice = createSlice({
+const filterSlice = createSlice({
   name: "filters",
   initialState,
   reducers: {
-    setStandard: (state, action) => {
-      if (state.Standart.includes(action.payload)) {
-        state.Standart.splice(
-          state.Standart.findIndex((el) => el === action.payload),
-          1
-        );
+    setStandard(state, { payload }: PayloadAction<string>) {
+      if (state.Standart.includes(payload)) {
+        state.Standart = state.Standart.filter((value) => value !== payload);
       } else {
-        state.Standart.push(action.payload);
+        state.Standart.push(payload);
       }
     },
-    setType: (state, action) => {
-      if (state.Type === action.payload) {
-        state.Type = "";
-      } else {
-        state.Type = action.payload;
-      }
+    setType(state, { payload }: PayloadAction<string>) {
+      state.Type = state.Type === payload ? "" : payload;
     },
-    setMaxPrice: (state, action) => {
-      state.maxPrice = action.payload;
+    setPriceRange(state, { payload }: PayloadAction<{ min: number; max: number | null }>) {
+      state.minPrice = Math.max(0, payload.min);
+      state.maxPrice = payload.max === null ? null : Math.max(state.minPrice, payload.max);
     },
-    setMinPrice: (state, action) => {
-      state.minPrice = action.payload;
+    resetFilters() {
+      return { ...initialState, Standart: [] };
     },
   },
 });
 
-export const { setStandard, setType, setMaxPrice, setMinPrice } =
-  filterSlice.actions;
-
+export const { setStandard, setType, setPriceRange, resetFilters } = filterSlice.actions;
 export default filterSlice.reducer;

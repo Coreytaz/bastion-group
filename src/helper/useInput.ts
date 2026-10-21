@@ -1,84 +1,37 @@
-import React from "react";
+import { useState, type ChangeEvent } from "react";
 
-type validProps = {
+export interface Validations {
   isEmpty?: boolean;
   isNumber?: boolean;
   Fname?: boolean;
   Email?: boolean;
-};
+  Phone?: boolean;
+}
 
-export const useValid = (value: any, validators: validProps) => {
-  const [empty, setEmpty] = React.useState(true);
-  const [isNumber, setIsNumber] = React.useState(false);
-  const [inputValid, setInputValid] = React.useState(false);
-  const [Fullname, setFullname] = React.useState(false);
-  const [Email, setEmail] = React.useState(false);
+// Validation is derived from the value (never mirrored in additional state/effects).
+export function useValid(value: string, validations: Validations) {
+  const trimmed = value.trim();
+  const empty = Boolean(validations.isEmpty && !trimmed);
+  const isNumber = Boolean(validations.isNumber && !/^\d+$/.test(trimmed));
+  const Fullname = Boolean(validations.Fname && !/^[\p{L}'-]+(?:\s+[\p{L}'-]+)+$/u.test(trimmed));
+  const digits = trimmed.replace(/\D/g, "");
+  const Phone = Boolean(validations.Phone && (!/^[+\d\s()-]+$/.test(trimmed) || digits.length < 10 || digits.length > 15));
+  const Email = Boolean(validations.Email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(trimmed));
+  return { empty, isNumber, Fullname, Email, Phone, inputValid: !(empty || isNumber || Fullname || Email || Phone) };
+}
 
-  React.useEffect(() => {
-    for (const valid in validators) {
-      switch (valid) {
-        case "isEmpty":
-          value ? setEmpty(false) : setEmpty(true);
-          break;
-        case "isNumber":
-          const reg = /^\d+$/;
-          reg.test(value) ? setIsNumber(false) : setIsNumber(true);
-          break;
-        case "Fname":
-          const regExp =
-            /^([А-ЯA-Z]|[А-ЯA-Z][\x27а-яa-z]{1,}|[А-ЯA-Z][\x27а-яa-z]{1,}\-([А-ЯA-Z][\x27а-яa-z]{1,}|(оглы)|(кызы)))\040[А-ЯA-Z][\x27а-яa-z]{1,}(\040[А-ЯA-Z][\x27а-яa-z]{1,})?$/gi;
-          regExp.test(value) ? setFullname(false) : setFullname(true);
-          break;
-        case "Email":
-          const re =
-            /^([A-Z|a-z|0-9](\.|_){0,1})+[A-Z|a-z|0-9]\@([A-Z|a-z|0-9])+((\.){0,1}[A-Z|a-z|0-9]){2}\.[a-z]{2,3}$/gm;
-          re.test(value) ? setEmail(false) : setEmail(true);
-          break;
-      }
-    }
-  }, [value]);
+export function useInput(initialValue: string, validations: Validations) {
+  const [value, setValue] = useState(initialValue);
+  const [isDirty, setDirty] = useState(false);
 
-  React.useEffect(() => {
-    if (empty || isNumber || Fullname) {
-      setInputValid(false);
-    } else {
-      setInputValid(true);
-    }
-  }, [empty, isNumber, Fullname, Email]);
-
-  return {
-    empty,
-    inputValid,
-    isNumber,
-    Fullname,
-    Email,
-  };
-};
-
-export const useInput = (initialValue: string, validations: validProps) => {
-  const [value, setValue] = React.useState(initialValue);
-  const [isDirty, setDirty] = React.useState<Boolean>(false);
-  const valid = useValid(value, validations);
-
-  const onChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    setValue(e.target.value);
+  const onChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setValue(event.target.value);
   };
   const onClear = () => {
     setValue("");
+    setDirty(false);
   };
+  const onBlur = () => setDirty(true);
 
-  const onBlur = () => {
-    setDirty(true);
-  };
-
-  return {
-    value,
-    onChange,
-    onClear,
-    onBlur,
-    isDirty,
-    ...valid,
-  };
-};
+  return { value, onChange, onClear, onBlur, isDirty, ...useValid(value, validations) };
+}

@@ -1,37 +1,20 @@
-import React from "react";
-import Button from "../Button/Button";
-import { Input } from "../Input/Input";
-import Alert from "../../assets/alert.svg";
-
-import "./CartBlock.scss";
-import CartItemBlock from "../CartItemBlock";
-import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
+import { type RootState } from "../../redux/store";
+import CartItemBlock from "../CartItemBlock";
 import CartOrder from "../CartOrder";
+import "./CartBlock.scss";
 
-const CartBlock: React.FC = () => {
+export default function CartBlock() {
   const { items, totalPrice } = useSelector((state: RootState) => state.cart);
-
   return (
     <div className="container">
-      <div className="cart-title">Корзина</div>
+      <h1 className="cart-title">Корзина</h1>
       <div className="cart-inner">
         <CartOrder items={items} totalPrice={totalPrice} />
         <div className="cart-content">
-          <div className="cart-content-title">
-            <img src={Alert} alt="" />
-            <span>
-              Извините, но указанное ранее количество товара недоступно.
-              Установлено ближайшее доступное значение.
-            </span>
-          </div>
-          <div className="cart-content-items">
-            <CartItemBlock items={items} />
-          </div>
+          <div className="cart-content-items"><CartItemBlock items={items} /></div>
         </div>
       </div>
     </div>
   );
-};
-
-export default CartBlock;
+}

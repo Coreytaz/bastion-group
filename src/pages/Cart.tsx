@@ -1,8 +1,2 @@
-import React from "react";
 import CartBlock from "../components/CartBlock/CartBlock";
-
-const Cart = () => {
-  return <CartBlock />;
-};
-
-export default Cart;
+export default function Cart() { return <CartBlock />; }

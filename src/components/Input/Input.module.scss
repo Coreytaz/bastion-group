@@ -86,3 +86,13 @@
     line-height: 14px;
     letter-spacing: 0.009em;
 }
+
+.form input:focus-visible { outline: none; }
+.form:focus-within { outline: 2px solid #c93e33; outline-offset: 2px; }
+.form input:not(:placeholder-shown) ~ .labelName .contentName {
+    transform: translateY(-150%);
+    left: 1px;
+    font-size: 12px;
+    color: #b3b3b3;
+}
+.form input[aria-invalid="true"] { border-bottom: 2px solid #ae2924; }

@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import Img from "../../assets/ItemsBlock/items/item.jpg";
 
 export type productState = {

@@ -1,30 +1,19 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { minusItem, plusItem } from "../redux/slice/cartSlice";
-import { RootState, useAppDispatch } from "../redux/store";
+import { type RootState, useAppDispatch } from "../redux/store";
 
-type CountCartProps = {
-  id: string;
-};
+interface CountCartProps { id: string }
 
-const CountCart: React.FC<CountCartProps> = React.memo(({ id }) => {
+export default function CountCart({ id }: CountCartProps) {
   const dispatch = useAppDispatch();
-  const cartItem = useSelector((state: RootState) =>
-    state.cart.items.find((obj) => obj.id === id)
-  );
+  const count = useSelector((state: RootState) => state.cart.items.find((item) => item.id === id)?.count ?? 0);
+  if (!count) return null;
 
-  const addedCount = cartItem ? cartItem.count : 0;
   return (
-    <>
-      {addedCount > 0 && (
-        <div className="content-count">
-          <span onClick={() => dispatch(plusItem(id))}>+</span>
-          <span>{addedCount}</span>
-          <span onClick={() => dispatch(minusItem(id))}>-</span>
-        </div>
-      )}
-    </>
+    <div className="content-count" aria-label="Количество товара">
+      <button type="button" aria-label="Увеличить количество" onClick={() => dispatch(plusItem(id))}>+</button>
+      <span aria-live="polite">{count}</span>
+      <button type="button" aria-label="Уменьшить количество" onClick={() => dispatch(minusItem(id))}>−</button>
+    </div>
   );
-});
-
-export default CountCart;
+}

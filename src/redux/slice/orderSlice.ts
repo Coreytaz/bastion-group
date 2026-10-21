@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CartItem } from "./cartSlice";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import type { CartItem } from "./cartSlice";
 
 type InformationPeople = {
   fullName: string;

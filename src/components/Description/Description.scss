@@ -1,19 +1,46 @@
 .description-title {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 22px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
 
-    letter-spacing: 0.009em;
+  letter-spacing: 0.009em;
 }
 
 .description-subtitle {
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 18px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
 
-    letter-spacing: 0.009em;
+  letter-spacing: 0.009em;
 }
 
 .mb {
-    margin-bottom: 96px;
+  margin-bottom: 96px;
+}
+
+.description-toggle {
+  border: 0;
+  background: transparent;
+  color: #c93e33;
+  padding: 6px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.description-subtitle {
+  overflow-wrap: anywhere;
+}
+
+.description-title {
+  margin-top: 40px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.description-subtitle {
+  color: #656b73;
+  line-height: 1.75;
+}
+.description-toggle:hover {
+  color: #ad352d;
+  text-decoration: underline;
 }

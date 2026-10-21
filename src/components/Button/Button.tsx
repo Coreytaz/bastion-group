@@ -1,4 +1,4 @@
-import React from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 import cn from "classnames";
 import Catalog from "./catalog.svg";
 import Cart from "./cart.svg";
@@ -6,51 +6,19 @@ import Commercial from "./Commercial.svg";
 import Shopping from "./shopping.svg";
 import styles from "./Button.module.scss";
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
   appearance: "primary" | "ghost";
-  icon?: "catalog" | "cart" | "Commercial" | 'Shopping';
+  icon?: "catalog" | "cart" | "Commercial" | "Shopping";
 }
 
-const Button: React.FC<ButtonProps> = ({
-  icon,
-  appearance,
-  children,
-  className,
-  ...props
-}) => {
+const icons = { catalog: Catalog, cart: Cart, Commercial, Shopping };
+
+export default function Button({ icon, appearance, children, className, type = "button", ...props }: ButtonProps) {
   return (
-    <button
-      className={cn(styles.button, className, {
-        [styles.primary]: appearance === "primary",
-        [styles.ghost]: appearance === "ghost",
-      })}
-      {...props}
-    >
-      {icon === "catalog" && (
-        <span className={cn(styles.span)}>
-          <img src={Catalog} alt="catalog" />
-        </span>
-      )}
-      {icon === "cart" && (
-        <span className={cn(styles.span)}>
-          <img src={Cart} alt="cart" />
-        </span>
-      )}
-      {icon === "Shopping" && (
-        <span className={cn(styles.span)}>
-          <img src={Shopping} alt="Shopping" />
-        </span>
-      )}
-      {icon === "Commercial" && (
-        <span className={cn(styles.span)}>
-          <img src={Commercial} alt="Commercial" />
-        </span>
-      )}
+    <button type={type} className={cn(styles.button, styles[appearance], className)} {...props}>
+      {icon && <span className={styles.span}><img src={icons[icon]} alt="" /></span>}
       <span>{children}</span>
     </button>
   );
-};
-
-export default Button;
+}

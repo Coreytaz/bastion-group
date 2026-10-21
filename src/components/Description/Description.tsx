@@ -1,14 +1,16 @@
-import React from "react";
+import { useState } from "react";
 import "./Description.scss";
 import Arrow from "../../assets/arrow.svg";
 
-const Description: React.FC = () => {
+const Description = () => {
+  const [expanded, setExpanded] = useState(true);
   return (
     <div className="container mb">
       <h1 className="description-title">
         Опоры трубопроводов от Бастион Груп - производитель металлических
         изделий №1
       </h1>
+      {expanded && <div id="product-description">
       <p className="description-subtitle">
         Надежность работы трубопровода в значительной мере зависит от
         правильности и прочности его крепления. Основные средства крепления
@@ -38,8 +40,9 @@ const Description: React.FC = () => {
         Резьбовые части опор обрабатываются антикоррозионной смазкой ПВК по ГОСТ
         19537-83 или ее аналогом.
       </p>
-      <span style={{ color: "#C93E33", cursor: "pointer" }}>
-        Скрыть описание{" "}
+      </div>}
+      <button className="description-toggle" type="button" onClick={() => setExpanded((previous) => !previous)} aria-expanded={expanded} aria-controls="product-description">
+        {expanded ? "Скрыть описание" : "Показать описание"}{" "}
         <img
           className="arrowmini"
           style={{ transform: "rotate(90deg)" }}
@@ -47,7 +50,7 @@ const Description: React.FC = () => {
           width={12}
           alt="Arrow"
         />
-      </span>
+      </button>
     </div>
   );
 };

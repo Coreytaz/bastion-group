@@ -1,0 +1,8 @@
+node_modules
+dist
+coverage
+pnpm-lock.yaml
+public/*.ico
+public/*.png
+src/assets
+.git

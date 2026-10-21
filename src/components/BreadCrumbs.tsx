@@ -1,26 +1,18 @@
-import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import Arrow from "../assets/arrow.svg";
 
-const BreadCrumbs: React.FC = () => {
-  return (
-    <div
-      className="container"
-      style={{
-        padding: "17px 0",
-        display: "flex",
-        gap: "0 15px",
-        fontWeight: "300",
-        fontSize: "12px",
-        lineHeight: "14px",
-      }}
-    >
-      <span>Главная</span>
-      <img src={Arrow} width="6" alt="Arrow" />
-      <span>Интернет-магазин</span>
-      <img src={Arrow} width="6"  alt="Arrow" />
-      <span>Опоры трубопроводов</span>
-    </div>
-  );
+const pageTitles: Record<string, string> = {
+  "/": "Опоры трубопроводов", "/cart": "Корзина",
+  "/product": "Продукты", "/typeProduct": "Типы продуктов",
 };
 
-export default BreadCrumbs;
+export default function BreadCrumbs() {
+  const { pathname } = useLocation();
+  return (
+    <nav className="container breadcrumbs" aria-label="Навигационная цепочка">
+      <Link to="/">Главная</Link>
+      <img src={Arrow} width={6} alt="" aria-hidden="true" />
+      <span aria-current="page">{pageTitles[pathname] ?? "Страница не найдена"}</span>
+    </nav>
+  );
+}

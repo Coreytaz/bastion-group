@@ -1,34 +1,26 @@
-import styles from "./Input.module.scss";
+import type { InputHTMLAttributes } from "react";
 import cn from "classnames";
-import { DetailedHTMLProps, FC, InputHTMLAttributes } from "react";
+import styles from "./Input.module.scss";
 import User from "./user.svg";
 import Phone from "./phone.svg";
 import Mail from "./mail.svg";
 import Org from "./org.svg";
 
-export interface InputProps
-  extends DetailedHTMLProps<
-    InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  > {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   icon?: "user" | "phone" | "mail" | "org";
 }
 
-export const Input: FC<InputProps> = ({
-  className,
-  icon,
-  ...props
-}: InputProps) => {
+const icons = { user: User, phone: Phone, mail: Mail, org: Org };
+
+export function Input({ className, icon, id, name, placeholder, ...props }: InputProps) {
+  const inputId = id ?? name;
   return (
     <div className={cn(className, styles.form)}>
-      {icon === "user" && <img src={User} alt="icon" />}
-      {icon === "phone" && <img src={Phone} alt="icon" />}
-      {icon === "mail" && <img src={Mail} alt="icon" />}
-      {icon === "org" && <img src={Org} alt="icon" />}
-      <input className={cn(styles.input)} {...props} placeholder="" />
-      <label className={cn(styles.labelName)} htmlFor={props.name}>
-        <span className={cn(styles.contentName)}>{props.placeholder}</span>
-      </label>
+      {icon && <img src={icons[icon]} alt="" aria-hidden="true" />}
+      <input id={inputId} name={name} className={styles.input} placeholder=" " {...props} />
+      {placeholder && <label className={styles.labelName} htmlFor={inputId}>
+        <span className={styles.contentName}>{placeholder}</span>
+      </label>}
     </div>
   );
-};
+}

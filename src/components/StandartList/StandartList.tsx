@@ -1,27 +1,22 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { setStandard } from "../../redux/slice/filterSlice";
-import { RootState, useAppDispatch } from "../../redux/store";
+import { type RootState, useAppDispatch } from "../../redux/store";
 
-const StandartList: React.FC = () => {
+export default function StandartList() {
   const dispatch = useAppDispatch();
-  const { product, filter } = useSelector((state: RootState) => state);
-  const standart = Array.from(new Set(product.map((item) => item.standart)));
-  const standart2 = filter.Standart;
+  const products = useSelector((state: RootState) => state.product);
+  const selected = useSelector((state: RootState) => state.filter.Standart);
+  const standards = [...new Set(products.map((product) => product.standart))];
 
   return (
     <ul>
-      {standart.map((item, i) => (
-        <li
-          key={i}
-          onClick={() => dispatch(setStandard(item))}
-          className={standart2.includes(item) ? "active" : ""}
-        >
-          {item}
+      {standards.map((standard) => (
+        <li key={standard}>
+          <button type="button" aria-pressed={selected.includes(standard)}
+            className={selected.includes(standard) ? "active" : ""}
+            onClick={() => dispatch(setStandard(standard))}>{standard}</button>
         </li>
       ))}
     </ul>
   );
-};
-
-export default StandartList;
+}

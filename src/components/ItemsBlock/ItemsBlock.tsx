@@ -1,194 +1,64 @@
-import React from "react";
+import { useState } from "react";
 import "./ItemsBlock.scss";
 import Arrow from "../../assets/ItemsBlock/Arrow.svg";
-import Sort from "../../assets/ItemsBlock/sort.svg";
-import Sortt from "../../assets/ItemsBlock/sortt.svg";
-import Application from "../../assets/ItemsBlock/application.svg";
 import MiniArrow from "../../assets/arrow.svg";
 import Setting from "../../assets/ItemsBlock/setting.svg";
-import Help from "../../assets/ItemsBlock/help.svg";
 import Button from "../Button/Button";
 import StandartList from "../StandartList/StandartList";
 import TypeBlock from "../TypeBlock";
 import PriceFilter from "../PriceFilter";
 import ItemBlock from "../ItemBlock";
+import { useAppDispatch } from "../../redux/store";
+import { resetFilters } from "../../redux/slice/filterSlice";
 
-const ItemsBlock: React.FC = () => {
+export default function ItemsBlock() {
+  const dispatch = useAppDispatch();
+  const [sort, setSort] = useState("default");
+
   return (
-    <>
-      <div className="container">
-        <div className="itemHeader">
-          <div>
-            <img src={Arrow} alt="arrow" />
-            <h1>Опоры трубопроводов</h1>
-          </div>
-          <div>
-            <span>
-              Сначала популярные <img src={Sort} alt="sort" />
-            </span>
-            <img src={Sortt} alt="sort" />
-          </div>
+    <div className="container">
+      <div className="itemHeader">
+        <div><img src={Arrow} alt="" /><h1>Опоры трубопроводов</h1></div>
+        <div>
+          <label className="sort-label" htmlFor="sort-items">Сортировка</label>
+          <select id="sort-items" value={sort} onChange={(event) => setSort(event.target.value)}>
+            <option value="default">По умолчанию</option>
+            <option value="price-asc">Сначала дешевле</option>
+            <option value="price-desc">Сначала дороже</option>
+            <option value="name">По названию</option>
+          </select>
         </div>
-        <main className="menuItem">
-          <div className="menuItem-filters">
-            <div className="filters">
-              <label htmlFor="faq_1" className="filters-title">
-                <span>
-                  <img src={Application} alt="Application" /> Категории
-                </span>
-                <img
-                  className="arrowmini"
-                  src={MiniArrow}
-                  width="10"
-                  height="10"
-                  alt="MiniArrow"
-                />
-              </label>
-              <input
-                className="filters-input"
-                type="checkbox"
-                name="faq"
-                id="faq_1"
-              />
-              <div className="filters-text">
-                <div className="text-block">
-                  <span>Серия 5.904-1 выпуск 1:</span>
-                  <p>Детали крепления воздуховодов</p>
-                </div>
-                <div className="text-block">
-                  <span>Серия 5.904-1 выпуск 1:</span>
-                  <p>Детали крепления воздуховодов</p>
-                </div>
-                <div className="text-block">
-                  <span>Серия 5.904-1 выпуск 1:</span>
-                  <p>Детали крепления воздуховодов</p>
-                </div>
-                <div className="text-block">
-                  <span>Серия 5.904-1 выпуск 1:</span>
-                  <p>Детали крепления воздуховодов</p>
-                </div>
-              </div>
-            </div>
-            <div className="filters">
-              <div className="filters-title clear">
-                <span>
-                  <img src={Setting} alt="Setting" /> Фильтры
-                </span>
-              </div>
-            </div>
-            <div className="filters">
-              <div className="filters-title mini clear">
-                <span>Цена, руб.</span>
-              </div>
-              <input
-                className="filters-input"
-                type="checkbox"
-                name="faq"
-                id="faq_3"
-              />
-              <div className="filters-text priceFilter">
-                <PriceFilter />
-              </div>
-            </div>
-            <div className="filters">
-              <label htmlFor="faq_5" className="filters-title mini">
-                <span>
-                  Тип продукта
-                  <img src={Help} alt="help" />
-                </span>
-                <img
-                  className="arrowmini"
-                  src={MiniArrow}
-                  width="10"
-                  height="10"
-                  alt="MiniArrow"
-                />
-              </label>
-              <input
-                className="filters-input"
-                type="checkbox"
-                name="faq"
-                id="faq_5"
-              />
-              <div className="filters-text standard-menu typesfilter">
-                <TypeBlock />
-              </div>
-            </div>
-            <div className="filters">
-              <label htmlFor="faq_4" className="filters-title mini">
-                <span>
-                  Бренд
-                  <img src={Help} alt="help" />
-                </span>
-                <img
-                  className="arrowmini"
-                  src={MiniArrow}
-                  width="10"
-                  height="10"
-                  alt="MiniArrow"
-                />
-              </label>
-              <input
-                className="filters-input"
-                type="checkbox"
-                name="faq"
-                id="faq_4"
-              />
-              <div className="filters-text">
-                <div className="text-block">
-                  <span>Серия 5.904-1 выпуск 1:</span>
-                  <p>Детали крепления воздуховодов</p>
-                </div>
-                <div className="text-block">
-                  <span>Серия 5.904-1 выпуск 1:</span>
-                  <p>Детали крепления воздуховодов</p>
-                </div>
-                <div className="text-block">
-                  <span>Серия 5.904-1 выпуск 1:</span>
-                  <p>Детали крепления воздуховодов</p>
-                </div>
-                <div className="text-block">
-                  <span>Серия 5.904-1 выпуск 1:</span>
-                  <p>Детали крепления воздуховодов</p>
-                </div>
-              </div>
-            </div>
-            <div className="filters">
-              <input className="checkbox" id="chek1" type="checkbox" />
-              <label
-                htmlFor="chek1"
-                className="filters-title mini input-checkbox"
-              >
-                Выбор покупателей
-              </label>
-            </div>
-            <div className="filters">
-              <input className="checkbox" id="chek2" type="checkbox" />
-              <label
-                htmlFor="chek2"
-                className="filters-title mini input-checkbox"
-              >
-                Лучшая цена
-              </label>
-            </div>
-            <div className="filters">
-              <Button className="buttonGhost" appearance="ghost">
-                Сбросить фильтры
-              </Button>
-            </div>
-          </div>
-          <div className="menuItem-card">
-            <div className="standard-menu">
-              <StandartList />
-            </div>
-            <div className="menuItem-items">
-              <ItemBlock />
-            </div>
-          </div>
-        </main>
       </div>
-    </>
+      <main className="menuItem">
+        <aside className="menuItem-filters" aria-label="Фильтры каталога">
+          <div className="filters">
+            <div className="filters-title clear"><span><img src={Setting} alt="" /> Фильтры</span></div>
+          </div>
+          <div className="filters">
+            <label htmlFor="price-filter" className="filters-title mini">
+              <span>Цена, руб.</span><img className="arrowmini" src={MiniArrow} width={10} height={10} alt="" />
+            </label>
+            <input className="filters-input" type="checkbox" id="price-filter" defaultChecked />
+            <div className="filters-text priceFilter"><PriceFilter /></div>
+          </div>
+          <div className="filters">
+            <label htmlFor="type-filter" className="filters-title mini">
+              <span>Тип продукта</span><img className="arrowmini" src={MiniArrow} width={10} height={10} alt="" />
+            </label>
+            <input className="filters-input" type="checkbox" id="type-filter" defaultChecked />
+            <div className="filters-text standard-menu typesfilter"><TypeBlock /></div>
+          </div>
+          <div className="filters">
+            <Button className="buttonGhost" appearance="ghost" onClick={() => dispatch(resetFilters())}>
+              Сбросить фильтры
+            </Button>
+          </div>
+        </aside>
+        <section className="menuItem-card" aria-label="Список товаров">
+          <div className="standard-menu" aria-label="Фильтр по стандарту"><StandartList /></div>
+          <div className="menuItem-items"><ItemBlock sort={sort} /></div>
+        </section>
+      </main>
+    </div>
   );
-};
-
-export default ItemsBlock;
+}
